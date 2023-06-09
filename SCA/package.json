@@ -1,0 +1,27 @@
+{
+  "name": "sca",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.2",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^16.0.0",
+    "express": "~4.16.1",
+    "express-session": "^1.17.2",
+    "gen-uuid": "^0.0.1",
+    "http-errors": "~1.6.3",
+    "mongoose": "^6.2.6",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.4",
+    "node-table-to-csv": "^0.1.0",
+    "nodemon": "^2.0.15",
+    "pug": "2.0.0-beta11",
+    "serve-favicon": "^2.5.0",
+    "uuid": "^8.3.2"
+  }
+}

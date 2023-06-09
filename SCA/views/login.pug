@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css',   integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3', crossorigin='anonymous')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+body
+  title='SCA - Login'
+  div(class = 'text-center center-div' id = 'login')
+    div(class = 'container w-25 border py-3')
+      div(class ='title')
+        h2(class ='font-weight-bold') Welcome to SCA
+            h3 Log in for the existing user
+            if(locals.logout)
+              div(class='alert alert-success text-center')
+                =logout
+      form(action='/login' method='POST')
+        div(class = 'form-group')
+          small(class = 'form-text text-left text-black') Username/Email:
+          input(type='email', class='form-control', placeholder= 'email', name='email', value=(undefined===user ? '' : user.username))
+        div(class = 'form-group')
+          small(class = 'form-text text-left text-black') Password:
+          input(type='password', class='form-control', name='password', placeholder='password')
+        button(type='submit', class='btn btn-success rounded-pill') Log in
+      spacer(class = 'pt-5')
+      small(class = 'form-text text-left text-black') Not registered?
+      a.center(href='/create') Create an account

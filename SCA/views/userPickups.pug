@@ -1,0 +1,40 @@
+extends layout
+
+block content
+    title='SCA - Your personal pick up list'
+    div(class='text-center center-div')
+        div(class='container border py-3')
+            if pickups != ''
+                h2 Pickups
+            else
+                h2 No Pickups
+            if(locals.confirmation)
+                div(class='alert alert-success text-center')
+                    =locals.confirmation
+            table(style='width:100%')
+                th Date
+                th Address
+                th Region
+                th Picture
+                th Status
+                th Select order
+                for pickup in pickups
+                    tr
+                        td= pickup.date
+                        td= pickup.address
+                        td= pickup.region
+                        td
+                            img(src='/images/'+pickup.url class='w-50 h-25')
+                        td=pickup.status
+                        td
+                            if(pickup.status !== 'confirmed')
+                                form(action='/pickup/userOrder' method='POST' id='delete' name='delete')
+                                    div(class = 'form-group')
+                                        button.btn.btn-primary(type = 'submit', name='id', value = pickup._id, form='delete') Delete
+                            else
+                                form(action='/pickup/pickupRating' method='POST' id='rating' name='rating')
+                                    div(class = 'form-group')
+                                        button.btn.btn-primary(type = 'submit', name='id', value = pickup._id, form='rating') Rating
+
+            //(type='submit', form='select') Submit
+            input(type='button' onclick='window.print()' value='Print')

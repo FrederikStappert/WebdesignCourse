@@ -1,0 +1,33 @@
+extends layout
+
+block content
+    title='SCA - Dashboard'
+    div(class='text-center center-div' id='dashboard')
+        div(class='container w-25 border py-3')
+            img(src='/images/logo_trans.png' class='w-50')
+            h3 Welcome #{locals.user ? user.username:'User'} to the Selective collection app
+            h6 #{'Your average rating is ' + average.toFixed(2)}
+            if(!locals.driver)
+                a(href='/pickup') Order pick up
+                a(href='/pictures') Rate a public picture
+                a(href='/pickup/userOrder') Your pick up orders
+            if(locals.driver)
+                a(href='/pickup/list') Pick up List
+                a(href='/pickup/myOrder') Your personal pick up lists
+                a(href='/pickup/today') Todays pick up list
+            a(href='/ratingsList') Rating details
+            if(!locals.driver)
+                h5 Number of pickups
+                    =pickupamount + ' out of 100'
+                    div(class='progress')
+                        div(class='progress-bar progress-bar-striped progress-bar-animated' style=('width:' + pickupamount + '%') role='progressbar' aria-valuenow="0" aria-valuemin="0" aria-valuemax="100")
+                            =pickupamount
+            if(ratings.length > 0)
+                h5 Your latest ratings
+                    table(style='width:100%' class='center')
+                        th Rating
+                        th Comment
+                        for rating in ratings
+                            tr
+                                td= rating.rating
+                                td= rating.comment

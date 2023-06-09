@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    title='SCA - Images of trash for rating'
+    div(class='text-center center-div' id='Rate us')
+        div(class='container w-25 border py-3')
+            //table(style='width:100%')
+                th Picture
+            for pickup in pickups
+                if user !== pickup.username
+                    a(href='/rating/' + pickup.url)
+                        img(src='/images/' + pickup.url class='w-25 h-25')

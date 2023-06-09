@@ -1,0 +1,20 @@
+extends layout
+
+block content
+    title='SCA - Ratings'
+    div(class='text-center center-div')
+        div(class='container border  py-3')
+            if ratings != ''
+                h2 Ratings
+            else
+                h2 No Ratings
+            if(locals.confirmation)
+                div(class='alert alert-success text-center')
+                    =locals.confirmation
+            table(style='width:100%')
+                th Rating
+                th Comment
+                for rating in ratings
+                    tr
+                        td= rating.rating
+                        td= rating.comment

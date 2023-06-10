@@ -1,21 +1,21 @@
 extends layout
 
 block content
-    title='SCA - Dashboard'
+    title='Pokemon Center - Dashboard'
     div(class='text-center center-div' id='dashboard')
         div(class='container w-25 border py-3')
             img(src='/images/logo_trans.png' class='w-50')
-            h3 Welcome #{locals.user ? user.username:'User'} to the Selective collection app
+            h3 Welcome #{locals.user ? locals.user.username.split('@')[0] : 'User'}
             h6 #{'Your average rating is ' + average.toFixed(2)}
             if(!locals.driver)
-                a(href='/pickup') Order pick up
-                a(href='/pictures') Rate a public picture
-                a(href='/pickup/userOrder') Your pick up orders
+                a(href='/pickup') Order Pokemon
+                a(href='/pictures') Rate a Pokemon
+                a(href='/pickup/userOrder') Your Pokemon orders
             if(locals.driver)
-                a(href='/pickup/list') Pick up List
-                a(href='/pickup/myOrder') Your personal pick up lists
-                a(href='/pickup/today') Todays pick up list
-            a(href='/ratingsList') Rating details
+                a(href='/pickup/list') Available Pokemon List
+                a(href='/pickup/myOrder') Your Pokemon List
+                a(href='/pickup/today') Todays Pokemon list
+            a(href='/ratingsList') Rating Details
             if(!locals.driver)
                 h5 Number of pickups
                     =pickupamount + ' out of 100'

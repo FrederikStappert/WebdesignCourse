@@ -5,7 +5,7 @@ html
         link(rel='stylesheet', href='/stylesheets/style.css')
 
 block content
-    title='SCA - Create user'
+    title='Pokemon Center - Register'
     div(class = 'text-center center-div' id = 'login')
         div(class = 'container w-25 border py-3')
             h1=title
@@ -19,46 +19,23 @@ block content
                     input(class='form-control' type='password' placeholder='Password' name='password' required='true' value=(password))
                     label Address:
                     input(class='form-control' type='text' placeholder='Placeholder 42' name='address' required='true' value=(address))
-                    label Choose a region:
+                    label Choose a Pokemon region:
                     select(class='form-control' name='region' required='true')
                         option(value='') Choose one
-                        option(value='Águas Claras') Águas Claras
-                        option(value='Arniqueira') Arniqueira
-                        option(value='Brazlândia') Brazlândia
-                        option(value='Candangolândia') Candangolândia
-                        option(value='Ceilândia') Ceilândia
-                        option(value='Cruzeiro') Cruzeiro
-                        option(value='Fercal') Fercal
-                        option(value='Gama') Gama
-                        option(value='Guará') Guará
-                        option(value='Itapoã') Itapoã
-                        option(value='Jardim Botânico') Jardim Botânico
-                        option(value='Lago Norte') Lago Norte
-                        option(value='Lago Sul') Lago Sul
-                        option(value='Núcleo Bandeirante') Núcleo Bandeirante
-                        option(value='Paranoá') Paranoá
-                        option(value='Park Way') Park Way
-                        option(value='Planaltina') Planaltina
-                        option(value='Plano Piloto') Plano Piloto
-                        option(value='Recanto das Emas') Recanto das Emas
-                        option(value='Riacho Fundo') Riacho Fundo
-                        option(value='Riacho Fundo II') Riacho Fundo II
-                        option(value='SCIA') SCIA
-                        option(value='SIA') SIA
-                        option(value='Samambaia') Samambaia
-                        option(value='Santa Maria') Santa Maria
-                        option(value='Sobradinho') Sobradinho
-                        option(value='Sobradinho II') Sobradinho II
-                        option(value='Sol Nascente/Pôr do Sol') Sol Nascente/Pôr do Sol
-                        option(value='Sudoeste/Octogonal') Sudoeste/Octogonal
-                        option(value='São Sebastião') São Sebastião
-                        option(value='Taguatinga') Taguatinga
-                        option(value='Varjão') Varjão
-                        option(value='Vicente Pires') Vicente Pires
+                        option(value='Kanto') Kanto
+                        option(value='Johto') Johto
+                        option(value='Hoenn') Hoenn
+                        option(value='Sinnoh') Sinnoh
+                        option(value='Unova') Unova
+                        option(value='Kalos') Kalos
+                        option(value='Alola') Alola
+                        option(value='Galar') Galar
+                        option(value='Hisui') Hisui
+
                     p What are you?
-                    label Consumer
+                    label Trainer
                     input(class='form-control-input' type='radio' name='driver' required='true' value='false')
-                    label Driver
+                    label Courier
                     input(class='form-control-input' type='radio' name='driver' required='true' value='true')
 
                 button.btn.btn-primary(type='submit') Submit

@@ -16,7 +16,7 @@ const url = 'mongodb+srv://Hald:Test1234@cluster0.k8190jd.mongodb.net/?retryWrit
 var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/login');
 var createRouter = require('./routes/createUser');
-var pickupRouter = require('./routes/pickup')
+var pickupRouter = require('./routes/pickup');
 
 const bodyParser = require("body-parser");
 

@@ -172,5 +172,4 @@ router.get('/ratingsList', async(req, res) => {
   }
 });
 
-
 module.exports = router;

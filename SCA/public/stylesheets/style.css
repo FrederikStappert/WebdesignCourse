@@ -13,7 +13,7 @@
 body {
   font-family: 'Open Sans', sans-serif;
   background-color: lightskyblue;
-  background-image: url("../images/IMG_5200.jpg");
+  background-image: url("../images/IMG_5200.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -40,11 +40,10 @@ a {
 
 a:link, a:visited {
   /*background-color: white;*/
-  background-color: rgba(140, 140, 140, 0.5);
+  background-color: rgba(0, 49, 107, 0.5);
   border-radius: 15px;
   color: black;
   margin-top: 5px;
-  padding-y: 10px;
   text-align: center;
   text-decoration: none;
   display: flex;
@@ -58,7 +57,7 @@ a:hover, a:active {
   float: left;
   color: black;
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px;
   margin-top: 7px;
   margin-left: 100px;
   text-decoration: none;

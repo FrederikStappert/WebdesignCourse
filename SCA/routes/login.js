@@ -23,7 +23,7 @@ router.post('/',async (req,res)=>{
                 if (isMatch) {
                     req.session.user = req.body.email;
                     res.redirect('/dashboard')
-                    //res.render('dashboard',{user:users,driver:users.driver,average: average});
+                    //res.render('dashboard',{user:users,courier:users.courier,average: average});
                 } else {
                     res.render('login', {user: users, logout: 'invalid password'})
                 }

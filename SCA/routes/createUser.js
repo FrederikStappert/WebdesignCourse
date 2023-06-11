@@ -12,7 +12,7 @@ router.post('/', async(req,res) =>{
     const users = new User ({
         username: req.body.username,
         password: req.body.password,
-        driver: req.body.driver,
+        courier: req.body.courier,
         address: req.body.address,
         region: req.body.region
     })

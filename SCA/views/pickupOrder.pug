@@ -7,9 +7,10 @@ block content
             h2='Pick up order'
             form(action='/pickup/pickupOrder' method='POST' enctype='multipart/form-data')
                 div(class = 'form-group')
-                    small(class = 'form-text text-left text-black') Select image of the trash:
-                    input(type='file', name='uploadImage' accept='image/*' required)
+                    small(class = 'form-text text-left text-black') Select image of the Pokemon: 
+                    br
+                    input(type='file', style ='padding-left: 200px' name='uploadImage' accept='image/*' required)
                 div(class = 'form-group')
-                    small(class = 'form-text text-left text-black') Select date for pick up:
+                    small(class = 'form-text text-left text-black') Select date of delivery:
                     input(type='date', class='form-control', placeholder= 'DD/MM/YYYY', name='date' required)
                 button(type='submit', class='btn btn-success rounded-pill') Submit

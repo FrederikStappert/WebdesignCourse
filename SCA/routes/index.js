@@ -19,7 +19,7 @@ router.get('/dashboard',async(req,res)=>{
   console.log(pickups.length)
   average = rating.reduce((sum, { rating }) => sum + rating, 0) / rating.length
   if(req.session.user){
-    res.render('dashboard',{user:users,driver:users.driver,average:average,ratings:ratings, pickupamount: pickups.length})
+    res.render('dashboard',{user:users,courier:users.courier,average:average,ratings:ratings, pickupamount: pickups.length})
   }else{
     res.send('Unauthorized User')
   }
@@ -87,7 +87,7 @@ router.post('/update', async(req,res) =>{
   users.password = req.body.password
   users.address = req.body.address
   users.region = req.body.region
-  //users.driver = req.body.driver
+  //users.courier = req.body.courier
   await users.save()
   res.redirect('dashboard')
   /*try{
@@ -116,7 +116,7 @@ router.post('/rating', async (req,res)=>{
     await rating.save()
     res.redirect('/dashboard')
   } catch{
-    res.send('Æv var')
+    res.send('Error')
   }
 })
 
@@ -154,7 +154,7 @@ router.post('/rating/:id', async (req,res)=>{
     await rating.save()
     res.redirect('/dashboard')
   } catch{
-    res.send('Æv var')
+    res.send('Error')
   }
 })
 
@@ -165,7 +165,7 @@ router.get('/ratingsList', async(req, res) => {
       console.log('ratingsList' + ratings)
       res.render('ratingsList', {ratings: ratings});
     }catch (err) {
-      res.render('error')
+      res.render('Error')
     }
   }else{
     res.send('Unauthorized User')

@@ -16,8 +16,8 @@ block content
                 th Address
                 th Region
                 th Picture
-                if(driver)
-                    th Driver
+                if(courier)
+                    th Courier
                 th Status
                 th Select order
                 for pickup in pickups
@@ -27,8 +27,8 @@ block content
                         td= pickup.region
                         td
                             img(src='/images/'+pickup.url class='w-50 h-25')
-                        if(pickup.driver)
-                            td=pickup.driver
+                        if(pickup.courier)
+                            td=pickup.courier
                         td=pickup.status
                         td
                             form(action='' method='POST' id='select' name='select')

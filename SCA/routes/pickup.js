@@ -35,7 +35,7 @@ router.post('/pickupOrder', pickupOrder.single('uploadImage'), async (req, res)=
         address: users.address,
         region: users.region,
         url: imageUrl,
-        driver: '',
+        courier: '',
         status: 'requested'
     })
 
@@ -75,7 +75,7 @@ router.get('/selectedOrder', async(req,res)=>{
 
 router.post('/list', async(req,res) =>{
     try{
-        await PickupOrder.findByIdAndUpdate(req.body.id,{driver: req.session.user, status: 'accepted'})
+        await PickupOrder.findByIdAndUpdate(req.body.id,{courier: req.session.user, status: 'accepted'})
         const pickups = await PickupOrder.find({status:'requested'}).sort({date:'asc',region:'asc'})
         res.render('pickupsList', {pickups: pickups, confirmation: 'Pickup selected' });
     }catch{
@@ -86,9 +86,9 @@ router.post('/list', async(req,res) =>{
 router.get('/myOrder', async(req, res) => {
     if(req.session.user){
         try {
-            const pickups = await PickupOrder.find({driver:req.session.user}).sort({date:'asc',region:'asc'})
+            const pickups = await PickupOrder.find({courier:req.session.user}).sort({date:'asc',region:'asc'})
             console.log('pickupsList' + pickups)
-            res.render('pickupsList', {pickups: pickups, driver: 'true'});
+            res.render('pickupsList', {pickups: pickups, courier: 'true'});
         }catch(err){
             res.render('error');
         }
@@ -100,7 +100,7 @@ router.get('/myOrder', async(req, res) => {
 router.post('/myOrder', async(req, res) => {
     try{
         await PickupOrder.findByIdAndUpdate(req.body.id,{ status: 'confirmed'})
-        const pickups = await PickupOrder.find({driver:req.session.user}).sort({date:'asc',region:'asc'})
+        const pickups = await PickupOrder.find({courier:req.session.user}).sort({date:'asc',region:'asc'})
         res.render('pickupsList', {pickups: pickups, confirmation: 'Pickup confirmed' });
     }catch{
         res.send('Error')
@@ -133,7 +133,7 @@ router.post('/userOrder', async(req, res) => {
 router.post('/pickupRating',async(req,res)=>{
     try {
         const pickups = await PickupOrder.findById(req.body.id)
-        res.render('ratingDriver', {pickups: pickups,url: pickups.url});
+        res.render('ratingcourier', {pickups: pickups,url: pickups.url});
     }catch(err){
         res.render('error');
     }
@@ -142,7 +142,7 @@ router.post('/pickupRating',async(req,res)=>{
 router.post('/pickupRatingg',async(req,res)=>{
     try{
         const rating = new Rating ({
-            username: req.body.driver,
+            username: req.body.courier,
             rating: req.body.rating,
             comment: req.body.comment
         })
@@ -156,7 +156,7 @@ router.post('/pickupRatingg',async(req,res)=>{
 router.get('/today', async(req, res) => {
     if(req.session.user){
         try {
-            const pickups = await PickupOrder.find({status:{$ne:'requested'}, date: date, driver: req.session.user}).sort({region:'asc'})
+            const pickups = await PickupOrder.find({status:{$ne:'requested'}, date: date, courier: req.session.user}).sort({region:'asc'})
             res.render('pickupsList', {pickups: pickups});
         }catch (err) {
             res.render('error')
@@ -168,8 +168,8 @@ router.get('/today', async(req, res) => {
 
 router.post('/today', async(req,res) =>{
     try{
-        await PickupOrder.findByIdAndUpdate(req.body.id,{driver: req.session.user, status: 'confirmed'})
-        const pickups = await PickupOrder.find({status:{$ne:'requested'},date: date, driver: req.session.user}).sort({region:'asc'})
+        await PickupOrder.findByIdAndUpdate(req.body.id,{courier: req.session.user, status: 'confirmed'})
+        const pickups = await PickupOrder.find({status:{$ne:'requested'},date: date, courier: req.session.user}).sort({region:'asc'})
         res.render('pickupsList', {pickups: pickups, confirmation: 'Pickup selected' });
     }catch{
         res.send('Error')

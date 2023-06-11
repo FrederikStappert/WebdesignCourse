@@ -20,7 +20,7 @@ block content
                     label Address:
                     input(class='form-control' type='text' placeholder='Placeholder 42' name='address' required='true' value=(address))
                     label Region:
-                    select(class='form-control' name='region' required='true' value=(Region))
+                    select(class='form-control' name='region' required='true')
                         option(disabled selected) Select a Pokemon region
                         option(value='Kanto') Kanto
                         option(value='Johto') Johto
@@ -34,9 +34,9 @@ block content
 
                     p What are you?
                     label Trainer
-                    input(class='form-control-input' type='radio' name='driver' required='true' value='false')
+                    input(class='form-control-input' type='radio' name='courier' required='true' value='false')
                     label Courier
-                    input(class='form-control-input' type='radio' name='driver' required='true' value='true')
+                    input(class='form-control-input' type='radio' name='courier' required='true' value='true')
 
                 button.btn.btn-primary(type='submit') Submit
 

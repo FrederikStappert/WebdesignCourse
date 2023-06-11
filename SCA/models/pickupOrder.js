@@ -22,7 +22,7 @@ const pickupOrderSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    driver: {
+    courier: {
         type: String,
         required: false
     },

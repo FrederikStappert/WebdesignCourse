@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    driver: {
+    courier: {
         type: Boolean,
         required: true,
         default: false

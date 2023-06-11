@@ -87,14 +87,8 @@ router.post('/update', async(req,res) =>{
   users.password = req.body.password
   users.address = req.body.address
   users.region = req.body.region
-  //users.courier = req.body.courier
   await users.save()
   res.redirect('dashboard')
-  /*try{
-
-  }catch{
-    res.send('Error her')
-  }*/
 })
 
 router.get('/rating',(req,res)=>{

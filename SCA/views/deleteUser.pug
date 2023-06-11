@@ -5,9 +5,8 @@ block content
     div(class='text-center center-div')
         div(class='container w-25 border py-3')
             h1=title
-            h2 You suuuuureeee you want to delete?????
             form(method='POST' action='')
-                div(class='text-center center-div' id='delete')
+                div(class='text-center center-div' style ='padding: 20px' id='delete')
                     button.btn.btn-primary(type='submit') Yes
             form(action='/dashboard')
                 button.btn.btn-primary() No

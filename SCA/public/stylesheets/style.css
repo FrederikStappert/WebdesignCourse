@@ -104,9 +104,3 @@ a.right {
   justify-content: right;
   align-items: right;
 }
-
-a.left {
-  display: flex;
-  justify-content: left;
-  align-items: left;
-}

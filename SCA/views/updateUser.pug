@@ -15,7 +15,7 @@ block content
                     input(class='form-control' type='text' placeholder='Placeholder' name='address' required='false' value=(undefined === user ? '' : user.address))
                     label Region:
                     select(class='form-control' name='region' required='true')
-                        option(value='') Choose one
+                        option(disabled selected) Select a Pokemon region
                         option(value='Kanto') Kanto
                         option(value='Johto') Johto
                         option(value='Hoenn') Hoenn
@@ -30,4 +30,4 @@ block content
                     //input(class='form-control-input' type='radio' name='driver' value=(undefined === user ? 'true' : user.driver))
                     //label Driver
                 button.btn.btn-primary(type='submit') Submit
-            a(href='/delete') Delete account
+            a(href='/delete' style ='padding-left: 20px') Delete account

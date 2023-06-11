@@ -19,9 +19,9 @@ block content
                     input(class='form-control' type='password' placeholder='Password' name='password' required='true' value=(password))
                     label Address:
                     input(class='form-control' type='text' placeholder='Placeholder 42' name='address' required='true' value=(address))
-                    label Choose a Pokemon region:
-                    select(class='form-control' name='region' required='true')
-                        option(value='') Choose one
+                    label Region:
+                    select(class='form-control' name='region' required='true' value=(Region))
+                        option(disabled selected) Select a Pokemon region
                         option(value='Kanto') Kanto
                         option(value='Johto') Johto
                         option(value='Hoenn') Hoenn
